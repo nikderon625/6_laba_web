@@ -1,0 +1,26 @@
+{% extends "layout.html" %}
+{% block content %}
+    <h2>Каталог музыкальных инструментов</h2>
+    <div class="products">
+        <div class="block strings">
+            <h3>🎻 Струнные</h3>
+            {% for image in strings %}
+                <div class="item">
+                    <img src="{{ url_for('static', filename='strings/' ~ image) }}" alt="{{ image }}">
+                </div>
+            {% else %}
+                <p>Пока нет изображений.</p>
+            {% endfor %}
+        </div>
+        <div class="block winds">
+            <h3>🎷 Духовые</h3>
+            {% for image in winds %}
+                <div class="item">
+                    <img src="{{ url_for('static', filename='winds/' ~ image) }}" alt="{{ image }}">
+                </div>
+            {% else %}
+                <p>Пока нет изображений.</p>
+            {% endfor %}
+        </div>
+    </div>
+{% endblock %}
